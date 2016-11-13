@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="application.CellMatrix" table="CellMatrix">
+
+	<id name="matrixId" column="MATRIX_ID" type="long" >
+       <generator class="identity" />
+    </id>
+    
+	<property name="matrixName" column="MATRIX_NAME"/>
+	<property name="numRows" column="NUM_ROWS"/>
+	<property name="numColumns" column="NUM_COLUMNS"/>
+	<list name="CellList" table="CELLS_LIST" inverse="false" cascade="all">
+		<key column="MATRIX_ID"/>
+		<list-index column="CELL_INDEX"/>
+		<one-to-many class="application.Cell"/>
+	</list>
+</class>
+</hibernate-mapping>
