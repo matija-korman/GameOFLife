@@ -1,1 +1,1 @@
-README - Conways GAme of Life
+README - Conways Game of Life
